@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FragmentNavigationController.iml" filepath="$PROJECT_DIR$/FragmentNavigationController.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fragmentnavigationcontroller/fragmentnavigationcontroller.iml" filepath="$PROJECT_DIR$/fragmentnavigationcontroller/fragmentnavigationcontroller.iml" />
     </modules>
   </component>
 </project>

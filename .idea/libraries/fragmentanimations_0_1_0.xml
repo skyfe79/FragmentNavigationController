@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="fragmentanimations-0.1.0">
+    <ANNOTATIONS>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.labo.kaji/fragmentanimations/0.1.0/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.labo.kaji/fragmentanimations/0.1.0/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.labo.kaji/fragmentanimations/0.1.0/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.labo.kaji/fragmentanimations/0.1.0/8d8aa73612138fa15deb24592676277234ff6089/fragmentanimations-0.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
