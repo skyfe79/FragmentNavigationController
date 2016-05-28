@@ -186,7 +186,10 @@ public void onBackPressed() {
 * dismissFragment(boolean withAnimation)
 * popToRootFragment()
 
-## MIT License
+## Extreme special thanks
+
+* `FragmentTransactionExtended` by Antonio Corrales : [https://github.com/DesarrolloAntonio/FragmentTransactionExtended](https://github.com/DesarrolloAntonio/FragmentTransactionExtended)
+ * FragmentNavigationController can be born because there is FragmentTransactionExtended project. FragmentNavigationController use animator xml files of FragmentTransactionExtended.
 
 ## MIT License
 
