@@ -20,8 +20,9 @@ import kr.pe.burt.android.lib.fragmentnavigationcontroller.FragmentNavigationCon
  */
 public class FragmentOne extends AndroidFragment {
 
+    @Nullable
     @Override
-    protected View getContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    protected View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_one, container, false);
         TextView t = (TextView) v.findViewById(R.id.title);
         FragmentNavigationController navigationController = getNavigationController();

@@ -46,7 +46,7 @@ public abstract class AndroidFragment extends Fragment  {
     @Nullable
     @Override
     final public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = getContentView(inflater, container, savedInstanceState);
+        View v = onCreateContentView(inflater, container, savedInstanceState);
         if(v == null) return v;
         contentView = v;
         innerRootLayout = new AndroidFragmentFrameLayout(getActivity());
@@ -55,7 +55,7 @@ public abstract class AndroidFragment extends Fragment  {
     }
 
     @Nullable
-    abstract protected View getContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
+    abstract protected View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
 
     /**
      * This is the layout for wrapping contentView
@@ -85,7 +85,6 @@ public abstract class AndroidFragment extends Fragment  {
             return null; //no animatable
         }
 
-        //PresentStyle presentStyle = nav.getPresentStyle();
         if(presentStyle == null) {
             return null; //no animatable
         }

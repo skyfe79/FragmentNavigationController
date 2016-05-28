@@ -53,7 +53,7 @@ public class FragmentNavigationController extends AndroidFragment {
 
     @Nullable
     @Override
-    protected View getContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    protected View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return null;
     }
 
