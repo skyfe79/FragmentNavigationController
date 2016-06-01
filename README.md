@@ -1,6 +1,9 @@
 # FragmentNavigationController
 
+[![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
 [![API](https://img.shields.io/badge/API-13%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=13)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](http://opensource.org/licenses/MIT)
+
 
 
 FragmentNavigationController is a convenient utility class for navigating fragments on Android. It is similar to iOS UINavigationController. FragmentNavigationController manages fragment stack for you. You just use presentFragment() and dismissFragment() method of it. FragmentNavigationController also provides many present styles(transition style) for transition between two fragments.
