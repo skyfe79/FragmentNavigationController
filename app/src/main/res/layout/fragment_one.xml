@@ -15,4 +15,18 @@
         android:textColor="@android:color/white"
         android:textSize="100dp"/>
 
+    <FrameLayout
+        android:id="@+id/childFragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_above="@id/title"/>
+
+    <Button
+        android:id="@+id/childButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/title"
+        android:text="CHILD" />
+
 </RelativeLayout>

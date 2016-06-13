@@ -24,7 +24,7 @@ import java.util.Stack;
 @SuppressLint("ValidFragment")
 public class FragmentNavigationController extends AndroidFragment {
 
-    private WeakReference<Activity> weakRootActivity = null;
+    private FragmentManager fragmentManager = null;
     private Stack<AndroidFragment> fragmentStack = new Stack<>();
     private @IdRes int containerViewId;
     private Object sync = new Object();
@@ -32,19 +32,18 @@ public class FragmentNavigationController extends AndroidFragment {
     private Interpolator interpolator = new LinearInterpolator();
     private long duration = 500;
 
-    public static FragmentNavigationController navigationController(@NonNull Activity activity, @IdRes int containerViewId) {
-        return new FragmentNavigationController(activity, containerViewId);
+    public static FragmentNavigationController navigationController(@NonNull FragmentManager fragmentManager, @IdRes int containerViewId) {
+        return new FragmentNavigationController(fragmentManager, containerViewId);
     }
 
-    private FragmentNavigationController(@NonNull Activity activity, @IdRes int containerViewId) {
+    private FragmentNavigationController(@NonNull FragmentManager fragmentManager, @IdRes int containerViewId) {
         setRetainInstance(true);
-        weakRootActivity = new WeakReference<>(activity);
         this.containerViewId = containerViewId;
-
+        this.fragmentManager = fragmentManager;
 
         synchronized (sync) {
             // 자기 자신을 넣는다.
-            activity.getFragmentManager()
+            fragmentManager
                     .beginTransaction()
                     .replace(containerViewId, this, "navigation-controller")
                     .commit();
@@ -118,8 +117,7 @@ public class FragmentNavigationController extends AndroidFragment {
 
     public void presentFragment(AndroidFragment fragment, boolean withAnimation) {
 
-        Activity activity = weakRootActivity.get();
-        if(activity == null) return;
+        if(fragmentManager == null) return;
 
         synchronized (sync) {
 
@@ -127,7 +125,7 @@ public class FragmentNavigationController extends AndroidFragment {
                 fragment.setNavigationController(this);
                 fragment.setAnimatable(false);
                 fragment.setPresentStyle(presentStyle);
-                activity.getFragmentManager()
+                fragmentManager
                         .beginTransaction()
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         .replace(containerViewId, fragment, "root")
@@ -139,7 +137,7 @@ public class FragmentNavigationController extends AndroidFragment {
                 fragment.setAnimatable(withAnimation);
                 fragment.setPresentStyle(presentStyle);
                 // hide last fragment and add new fragment
-                activity.getFragmentManager()
+                fragmentManager
                         .beginTransaction()
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         .hide(fragmentStack.peek())
@@ -155,8 +153,8 @@ public class FragmentNavigationController extends AndroidFragment {
     }
 
     public boolean dismissFragment(boolean withAnimation) {
-        Activity activity = weakRootActivity.get();
-        if(activity == null) return false;
+
+        if(fragmentManager == null) return false;
 
         // fragmentStack only has root fragment
         if(fragmentStack.size() == 1) {
@@ -165,7 +163,7 @@ public class FragmentNavigationController extends AndroidFragment {
             AndroidFragment fragmentToShow = fragmentStack.peek();
             fragmentToShow.setNavigationController(this);
             fragmentToShow.setAnimatable(withAnimation);
-            activity.getFragmentManager()
+            fragmentManager
                     .beginTransaction()
                     .show(fragmentToShow)
                     .commit();
@@ -182,7 +180,7 @@ public class FragmentNavigationController extends AndroidFragment {
             AndroidFragment fragmentToShow = fragmentStack.peek();
             fragmentToShow.setNavigationController(this);
             fragmentToShow.setAnimatable(withAnimation);
-            activity.getFragmentManager()
+            fragmentManager
                     .beginTransaction()
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
                     .show(fragmentToShow)
