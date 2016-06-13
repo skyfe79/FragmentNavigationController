@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        navigationController = FragmentNavigationController.navigationController(this, R.id.fragmentContainer);
+        navigationController = FragmentNavigationController.navigationController(getFragmentManager(), R.id.fragmentContainer);
         navigationController.setPresentStyle(PresentStyle.ACCORDION_LEFT);
         navigationController.setInterpolator(new AccelerateDecelerateInterpolator());
 
