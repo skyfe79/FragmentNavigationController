@@ -36,9 +36,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void nextFragment() {
+
         Random r = new Random();
-        navigationController.setPresentStyle(r.nextInt(39)+1); //exclude NONE present style
-        navigationController.presentFragment(new FragmentOne());
+        //navigationController.setPresentStyle(r.nextInt(39) + 1); //exclude NONE present style
+        navigationController.setPresentStyle(PresentStyle.ACCORDION_LEFT);
+        if(navigationController.getFragmentCount() % 2 == 0) {
+            navigationController.presentFragment(new FragmentOne());
+        } else {
+            navigationController.presentFragment(new FragmentTwo());
+        }
+
     }
 
     @Override
