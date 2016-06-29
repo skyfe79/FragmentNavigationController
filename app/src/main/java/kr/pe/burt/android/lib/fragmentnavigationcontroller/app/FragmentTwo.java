@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.Random;
 
 import kr.pe.burt.android.lib.fragmentnavigationcontroller.AndroidFragment;
@@ -21,14 +19,14 @@ import kr.pe.burt.android.lib.fragmentnavigationcontroller.PresentStyle;
 /**
  * Created by burt on 2016. 5. 22..
  */
-public class FragmentOne extends AndroidFragment {
+public class FragmentTwo extends AndroidFragment {
 
     FragmentNavigationController childNavigationController;
 
     @Nullable
     @Override
     protected View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_one, container, false);
+        View v = inflater.inflate(R.layout.fragment_two, container, false);
         TextView t = (TextView) v.findViewById(R.id.title);
 
         v.findViewById(R.id.childButton).setOnClickListener(new View.OnClickListener() {
@@ -67,11 +65,11 @@ public class FragmentOne extends AndroidFragment {
 
     @Override
     public void onShowFragment() {
-        Log.d("TAGTAG", "onShowFragment - One");
+        Log.d("TAGTAG", "onShowFragment - Two");
     }
 
     @Override
     public void onHideFragment() {
-        Log.d("TAGTAG", "onHideFragment - One");
+        Log.d("TAGTAG", "onHideFragment - Two");
     }
 }

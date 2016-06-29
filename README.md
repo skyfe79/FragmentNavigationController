@@ -20,7 +20,7 @@ FragmentNavigationController is a convenient utility class for navigating fragme
 ```groovy
 dependencies {
     ...
-    compile 'kr.pe.burt.android.lib:fragmentnavigationcontroller:0.0.3'
+    compile 'kr.pe.burt.android.lib:fragmentnavigationcontroller:0.0.4'
 }
 ```
 

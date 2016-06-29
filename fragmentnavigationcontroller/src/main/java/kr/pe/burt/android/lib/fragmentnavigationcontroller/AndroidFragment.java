@@ -118,16 +118,28 @@ public abstract class AndroidFragment extends Fragment  {
         animator.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animator) {
-                if(transit == FragmentTransaction.TRANSIT_FRAGMENT_CLOSE && enter == false) {
-                    onHideFragment();
+
+                if(transit == FragmentTransaction.TRANSIT_FRAGMENT_OPEN) {
+
+                    if(enter) {
+                        onShowFragment();
+                    } else {
+                        //onHideFragment();
+                    }
+                } else {
+
+                    if(enter) {
+                        onShowFragment();
+                    } else {
+                        onHideFragment();
+                    }
                 }
+
+
             }
 
             @Override
             public void onAnimationEnd(Animator animator) {
-                if(transit == FragmentTransaction.TRANSIT_FRAGMENT_OPEN && enter == true) {
-                    onShowFragment();
-                }
             }
 
             @Override
