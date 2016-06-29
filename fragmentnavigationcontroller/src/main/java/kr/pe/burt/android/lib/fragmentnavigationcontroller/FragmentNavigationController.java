@@ -137,10 +137,12 @@ public class FragmentNavigationController extends AndroidFragment {
                 fragment.setAnimatable(withAnimation);
                 fragment.setPresentStyle(presentStyle);
                 // hide last fragment and add new fragment
+                AndroidFragment hideFragment = fragmentStack.peek();
+                hideFragment.onHideFragment();
                 fragmentManager
                         .beginTransaction()
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                        .hide(fragmentStack.peek())
+                        .hide(hideFragment)
                         .add(containerViewId, fragment, fragment.getClass().getName())
                         .commit();
             }

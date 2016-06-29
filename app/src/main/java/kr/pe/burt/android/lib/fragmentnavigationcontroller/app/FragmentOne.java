@@ -3,6 +3,7 @@ package kr.pe.burt.android.lib.fragmentnavigationcontroller.app;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,5 +63,15 @@ public class FragmentOne extends AndroidFragment {
         Random r = new Random();
         childNavigationController.setPresentStyle(r.nextInt(39)+1); //exclude NONE present style
         childNavigationController.presentFragment(new ChildFragment());
+    }
+
+    @Override
+    public void onShowFragment() {
+        Log.d("TAGTAG", "onShowFragment");
+    }
+
+    @Override
+    public void onHideFragment() {
+        Log.d("TAGTAG", "onHideFragment");
     }
 }
