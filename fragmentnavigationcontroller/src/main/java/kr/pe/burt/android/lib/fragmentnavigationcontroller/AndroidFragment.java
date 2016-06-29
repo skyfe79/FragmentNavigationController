@@ -74,7 +74,7 @@ public abstract class AndroidFragment extends Fragment  {
     }
 
     @Override
-    public Animator onCreateAnimator(int transit, boolean enter, int nextAnim) {
+    public Animator onCreateAnimator(final int transit, final boolean enter, int nextAnim) {
         if(animatable == false) {
             animatable = true;
             return null;
@@ -114,7 +114,35 @@ public abstract class AndroidFragment extends Fragment  {
             animator.setInterpolator(nav.getInterpolator());
             animator.setDuration(nav.getDuration());
         }
+
+        animator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animator) {
+                if(transit == FragmentTransaction.TRANSIT_FRAGMENT_CLOSE && enter == false) {
+                    onHideFragment();
+                }
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animator) {
+                if(transit == FragmentTransaction.TRANSIT_FRAGMENT_OPEN && enter == true) {
+                    onShowFragment();
+                }
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animator) {
+
+            }
+        });
         return animator;
     }
 
+    public void onShowFragment() {}
+    public void onHideFragment() {}
 }
